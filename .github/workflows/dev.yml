@@ -25,15 +25,14 @@ jobs:
       - name: "install terraform"
         uses: hashicorp/setup-terraform@v3
 
-      - name: "terraform init"
+      - name: "Terraform Init"
         run: |
-          terraform init \
-                -backend-config="bucket=${{ secrets.DEV_BACKEND_S3 }}" \
-                -backend-config="key=terraform.tfstate" \
-                -backend-config="region=${{ secrets.REGION_S3 }}" \
-                -backend-config="access_key=${{ secrets.DEV_ACCESS_KEY }}" \
-                -backend-config="secret_key=${{ secrets.DEV_SECRET_KEY }}" \
-
+           terraform init \
+             -backend-config="bucket=${{ secrets.DEV_BACKEND_S3 }}" \
+             -backend-config="key=terraform.tfstate" \
+             -backend-config="region=${{ secrets.REGION_S3 }}" \
+             -backend-config="access_key=${{ secrets.DEV_ACCESS_KEY }}" \
+             -backend-config="secret_key=${{ secrets.DEV_SECRET_KEY }}"
 
       - name: "terraform validate"
         run: terraform validate 
