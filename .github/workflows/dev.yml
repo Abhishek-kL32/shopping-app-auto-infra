@@ -5,6 +5,8 @@ on:
   push:
     branches:
       - dev
+
+on:
   repository_dispatch:
     types: [ dev-deploy-event ]
 
